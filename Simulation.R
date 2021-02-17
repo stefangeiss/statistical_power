@@ -1276,7 +1276,8 @@ dat.corr.s$sig.01 <- as.numeric(as.character(Recode(dat.corr.s$sample,"10=.765;2
 
 dat.corr <- rbind(dat.corr.s,dat.corr.m)
 
-dat.corr$issig05
+dat.corr$issig05 <- ifelse(dat.corr$p.025-dat.corr$sig.05>0,dat.corr$p.500,NA)
+
 
 dat.corr$delta.upper <- dat.corr$p.975-dat.corr$sig.05
 
